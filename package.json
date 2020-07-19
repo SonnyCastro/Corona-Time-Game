@@ -1,0 +1,11 @@
+{
+  "name": "Repl_Game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:SonnyCastro/Repl_Game.git",
+  "author": "Sonny Castro <sonnycastro0606@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
