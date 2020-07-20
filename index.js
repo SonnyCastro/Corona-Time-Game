@@ -9,11 +9,29 @@ let rules =
 let supermarkets = ["Whole Foods", " Trader Joes", " Publix: "];
 let takeout = ["Uber eats", " Grubhub", " Postmates: "];
 let singleBalance = 1200;
+let singleCurrentBalance = 1200;
 let marriedBalance = 2400;
 let familyBalance = 3000;
 let flowerShops = ["Dandelion Division", " Kabloom", " Flowerworks: "];
 let makotoMeals = ["Premium", " Anniversary", " Standard: "];
 let familyBills = ["Light Bill", " Car Insurance", " Child Support: "];
+let prices = {
+  wholeFoods: 155.75,
+  traderJoes: 125.75,
+  publix: 135.75,
+  uberEats: 55.75,
+  grubHub: 45.75,
+  postmates: 55.75,
+  dandelionDivision: 195.75,
+  kabloom: 145.75,
+  flowerWorks: 155.75,
+  premium: 295.75,
+  anniversary: 255.75,
+  standard: 195,
+  fpl: 105.75,
+  geico: 200,
+  childSupport: 1000
+};
 const gameOver = () => {
   console.log("Uh Oh you have ran out of $$ MONEY $$\n\nGAME OVER !!!!");
 };
@@ -90,8 +108,8 @@ if (household === "single") {
       * Rice
       * Potatoes
       * Asparagus
-      * Total With Tax: $155.75
-      * Remaining Balance: $${singleBalance - 155.75}\n`
+      * Total With Tax: $${prices.wholeFoods}
+      * Remaining Balance: $${singleBalance -= prices.wholeFoods}\n`
         );
         break;
       case "trader joes":
@@ -108,8 +126,8 @@ if (household === "single") {
       * Rice
       * Potatoes
       * Asparagus
-      * Total With Tax: $125.75
-      * Remaining Balance: $${singleBalance - 125.75}\n`
+      * Total With Tax: $${prices.traderJoes}
+      * Remaining Balance: $${singleBalance -= prices.traderJoes}\n`
         );
         break;
       case "publix":
@@ -126,8 +144,8 @@ if (household === "single") {
       * Rice
       * Potatoes
       * Asparagus
-      * Total With Tax: $135.75
-      * Remaining Balance: $${singleBalance - 135.75}\n`
+      * Total With Tax: $${prices.publix}
+      * Remaining Balance: $${singleBalance -= prices.publix}\n`
         );
     }
   }
@@ -150,8 +168,8 @@ if (household === "single") {
       ~ Luna Pasta ~\n\
       * Spaghetti Bolonese\n\
       * Caprese\n\
-      * Total With Tax & Delivery Fee: $55.75
-      * Remaining Balance: $${singleBalance - 55.75}\n`
+      * Total With Tax & Delivery Fee: $${prices.uberEats}
+      * Remaining Balance: $${singleBalance -= prices.uberEats}\n`
         );
         break;
       case "grubhub":
@@ -162,8 +180,8 @@ if (household === "single") {
       * Double Patty Bacon Burger\n\
       * Large Fries\n\
       * Oreo Milk Shake
-      * Total With Tax & Delivery Fee: $45.75
-      * Remaining Balance: $${singleBalance - 45.75}\n`
+      * Total With Tax & Delivery Fee: $${prices.grubHub}
+      * Remaining Balance: $${singleBalance -= prices.grubHub}\n`
         );
         break;
       case "postmates":
@@ -174,15 +192,18 @@ if (household === "single") {
       * California Roll\n\
       * 5 Tuna Nigiri\n\
       * Beef Fried Rice
-      * Total With Tax & Delivery Fee: $55.75
-      * Remaining Balance: $${singleBalance - 55.75}\n`
+      * Total With Tax & Delivery Fee: $${prices.postmates}
+      * Remaining Balance: $${singleBalance -= prices.postmates}\n`
         );
     }
   }
   console.log(
     `Great, your fridge is stocked up. RING!!! RING!!! Uh Oh it's your landord`
   );
-  console.log(`\nTime to pay up!\n\nCurrent Balance: $0\n`);
+  console.log(
+    `\nTime to pay up!\n\nCurrent Balance: $${singleBalance}\n`
+  );
+  console.log(`Rent: $${singleBalance} - Current Balance: $${singleBalance} = $0\n`)
   gameOver();
 }
 
@@ -229,8 +250,8 @@ if (household === "married") {
       * Dozen Roses\n\
       * Dozen Dandelion's\n\
       * Dozen Orchid's
-      * Total With Tax & Delivery Fee: $195.75
-      * Remaining Balance: $${marriedBalance - 195.75}\n`
+      * Total With Tax & Delivery Fee: $${prices.dandelionDivision}
+      * Remaining Balance: $${marriedBalance -= prices.dandelionDivision}\n`
         );
         break;
       case "kabloom":
@@ -241,8 +262,8 @@ if (household === "married") {
       * Dozen Roses\n\
       * Dozen Dandelion's\n\
       * Dozen Orchid's
-      * Total With Tax & Delivery Fee: $145.75
-      * Remaining Balance: $${marriedBalance - 145.75}\n`
+      * Total With Tax & Delivery Fee: $${prices.kabloom}
+      * Remaining Balance: $${marriedBalance -= prices.kabloom}\n`
         );
         break;
       case "flowerworks":
@@ -253,8 +274,8 @@ if (household === "married") {
       * Dozen Roses\n\
       * Dozen Dandelion's\n\
       * Dozen Orchid's
-      * Total With Tax & Delivery Fee: $155.75
-      * Remaining Balance: $${marriedBalance - 55.75}\n`
+      * Total With Tax & Delivery Fee: $${prices.flowerWorks}
+      * Remaining Balance: $${marriedBalance -= prices.flowerWorks}\n`
         );
     }
   } else if (choicesMarried[indexMarried] === "Makoto Dinner & Champagne") {
@@ -275,8 +296,8 @@ if (household === "married") {
       * Sushi Boat\n\
       * Wagyu Short Rib
       * Whole Roasted Branzino
-      * Total With Tax & Delivery Fee: $295.75
-      * Remaining Balance: $${marriedBalance - 295.75}\n`
+      * Total With Tax & Delivery Fee: $${prices.premium}
+      * Remaining Balance: $${marriedBalance -= prices.premium}\n`
         );
         break;
       case "anniversary":
@@ -289,8 +310,8 @@ if (household === "married") {
       * Wagyu Hot Stone
       * Miso Sea Bass
       * Ginger Lamb Chop
-      * Total With Tax & Delivery Fee: $255.75
-      * Remaining Balance: $${marriedBalance - 255.75}\n`
+      * Total With Tax & Delivery Fee: $${prices.anniversary}
+      * Remaining Balance: $${marriedBalance -= prices.anniversary}\n`
         );
         break;
       case "standard":
@@ -303,15 +324,16 @@ if (household === "married") {
       * Miso Soup
       * Wagyu Hot Stone
       * Miso Sea Bass
-      * Total With Tax & Delivery Fee: $195.75
-      * Remaining Balance: $${marriedBalance - 55.75}\n`
+      * Total With Tax & Delivery Fee: $${prices.standard}
+      * Remaining Balance: $${marriedBalance -= prices.standard}\n`
         );
     }
   }
   console.log(
     `What a great Spouse you are. RING!!! RING!!! Uh Oh it's your landord`
   );
-  console.log(`\nTime to pay up!\n\nCurrent Balance: $0\n`);
+  console.log(`\nTime to pay up!\n\nCurrent Balance: $${marriedBalance}\n`);
+  console.log(`Rent: $${marriedBalance} - Current Balance: $${marriedBalance} = $0\n`)
   gameOver();
 }
 
@@ -356,8 +378,8 @@ if (household === "family") {
       * Rice
       * Potatoes
       * Asparagus
-      * Total With Tax: $155.75
-      * Remaining Balance: $${familyBalance - 155.75}\n`
+      * Total With Tax: $${prices.wholeFoods}
+      * Remaining Balance: $${familyBalance -= prices.wholeFoods}\n`
         );
         break;
       case "trader joes":
@@ -374,8 +396,8 @@ if (household === "family") {
       * Rice
       * Potatoes
       * Asparagus
-      * Total With Tax: $125.75
-      * Remaining Balance: $${familyBalance - 125.75}\n`
+      * Total With Tax: $${prices.traderJoes}
+      * Remaining Balance: $${familyBalance -= prices.traderJoes}\n`
         );
         break;
       case "publix":
@@ -392,8 +414,8 @@ if (household === "family") {
       * Rice
       * Potatoes
       * Asparagus
-      * Total With Tax: $135.75
-      * Remaining Balance: $${familyBalance - 135.75}\n`
+      * Total With Tax: $${prices.publix}
+      * Remaining Balance: $${familyBalance -= prices.publix}\n`
         );
     }
   } else if (choicesFamily[indexFamily] === "Pay Bill's") {
@@ -412,8 +434,8 @@ if (household === "family") {
       ~ FPL ~\n\
       * Light Bill
       * 06/01/2020 - 07/01/2020
-      * Total With Tax: $105.75
-      * Remaining Balance: $${familyBalance - 105.75}\n`
+      * Total With Tax: $${prices.fpl}
+      * Remaining Balance: $${familyBalance -= prices.fpl}\n`
         );
         break;
       case "car insurance":
@@ -423,8 +445,8 @@ if (household === "family") {
       ~ Geico ~\n\
       * Car Insurance
       * 06/01/2020 - 07/01/2020
-      * Total With Tax: $200
-      * Remaining Balance: $${familyBalance - 200}\n`
+      * Total With Tax: $${prices.geico}
+      * Remaining Balance: $${familyBalance -= prices.geico}\n`
         );
         break;
       case "child support":
@@ -433,14 +455,16 @@ if (household === "family") {
           `\tYour Order Recipt:\n\
       ~ Child Support ~\n\
       * 1 Child
-      * Total With Tax: $1000
-      * Remaining Balance: $${familyBalance - 1000}\n`
+      * Total With Tax: $${prices.childSupport}
+      * Remaining Balance: $${familyBalance -= prices.childSupport}\n`
         );
     }
   }
   console.log(
     `What a great Spouse you are. RING!!! RING!!! Uh Oh it's your landord`
   );
-  console.log(`\nTime to pay up!\n\nCurrent Balance: $0\n`);
+  console.log(`\nTime to pay up!\n\nCurrent Balance: $${familyBalance}\n`);
+  console.log(`Rent: $${familyBalance} - Current Balance: $${familyBalance} = $0\n`)
+
   gameOver();
 }
